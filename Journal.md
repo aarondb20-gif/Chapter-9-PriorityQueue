@@ -13,3 +13,7 @@ less efficient.
 Phase 3
 If you don't check the que size before calling poll() you will get an error message, because after you get to the end of 
 the queue it will return null and that is an underflow exception.
+
+Phase 4
+I do get a Null Pointer Exception if I reach the end of the queue and the loop still runs. Instead of checking if the 
+queue is empty, the AI review says to check if the first and second element are equal to null.

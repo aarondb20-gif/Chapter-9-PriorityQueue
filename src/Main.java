@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -23,8 +24,14 @@ public class Main {
 
         while (comp.size() >= 2){
             System.out.println(comp.size());
+
             Company firstSmallest = comp.poll();
+
             Company secondSmallest = comp.poll();
+            //check queue and throw Underflow exception
+            if (firstSmallest == null || secondSmallest == null){
+                throw new NoSuchElementException("Queue Underflow: Cannot poll from empty queue.");
+            }
             String mergedName = firstSmallest.name + "-" + secondSmallest.name;
             int mergedSize = (int)((firstSmallest.size + secondSmallest.size) * 1.1);
             Company mergedCompany = new Company(mergedName, mergedSize);
@@ -32,7 +39,9 @@ public class Main {
 
             System.out.println("Merged " + firstSmallest + " and " + secondSmallest +
                             " into " + mergedName + " with size " + mergedSize);
+
         }
+
         System.out.println(comp.size());
         System.out.println(comp.toString());
 
