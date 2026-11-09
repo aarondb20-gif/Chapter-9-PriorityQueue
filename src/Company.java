@@ -1,6 +1,6 @@
 public class Company {
-    private String name;
-    private int size;
+    protected String name;
+    protected int size;
 
     public Company(String name, int size){
         this.name = name;
